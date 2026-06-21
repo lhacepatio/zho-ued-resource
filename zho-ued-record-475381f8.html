@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ued体育 · 简明指南</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: #f9f7f4;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2e2b27;
+            line-height: 1.7;
+            padding: 2.5rem 1.5rem;
+        }
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+        .hero {
+            border-left: 4px solid #b7a99a;
+            padding-left: 1.5rem;
+            margin-bottom: 2.8rem;
+        }
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #1f1b17;
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+        }
+        .hero .sub {
+            font-size: 0.95rem;
+            color: #7a6f66;
+            margin-top: 0.2rem;
+        }
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin: 2.2rem 0 0.8rem;
+            color: #2b2621;
+            border-bottom: 1px solid #e2dcd5;
+            padding-bottom: 0.25rem;
+        }
+        p {
+            margin: 0 0 1rem;
+        }
+        .highlight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            margin: 1.2rem 0 1.8rem;
+        }
+        .hl-card {
+            flex: 1 1 180px;
+            background: #ffffffec;
+            border: 1px solid #e6dfd8;
+            border-radius: 12px;
+            padding: 1.2rem 1rem 1.1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s;
+        }
+        .hl-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+        .hl-card h3 {
+            font-size: 1rem;
+            font-weight: 550;
+            color: #3e352e;
+            margin-bottom: 0.25rem;
+        }
+        .hl-card p {
+            font-size: 0.9rem;
+            color: #5a4f47;
+            margin: 0;
+        }
+        .callout {
+            background: #efe9e1;
+            border-left: 4px solid #b7a99a;
+            padding: 1.2rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.8rem 0 2rem;
+        }
+        .callout strong {
+            color: #1f1b17;
+            display: block;
+            font-weight: 550;
+            margin-bottom: 0.2rem;
+        }
+        .callout p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        .faq-item {
+            margin-bottom: 0.7rem;
+        }
+        .faq-item details {
+            cursor: pointer;
+        }
+        .faq-item summary {
+            font-weight: 500;
+            color: #2b2621;
+            padding: 0.35rem 0;
+            border-bottom: 1px dashed #ddd5cd;
+        }
+        .faq-item details[open] summary {
+            margin-bottom: 0.3rem;
+        }
+        .faq-item .answer {
+            font-size: 0.95rem;
+            padding: 0.2rem 0 0.6rem 0.6rem;
+            color: #4f463f;
+        }
+        .footer-note {
+            margin-top: 3rem;
+            border-top: 1px solid #e2dcd5;
+            padding-top: 1.2rem;
+            font-size: 0.9rem;
+            color: #7a6f66;
+        }
+        a {
+            color: #5a4d40;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: color 0.15s;
+        }
+        a:hover {
+            color: #1f1b17;
+        }
+        @media (max-width: 480px) {
+            body { padding: 1.5rem 1rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .highlight-grid { flex-direction: column; }
+            .hl-card { flex: 1 1 auto; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1>ued体育 · 使用向导</h1>
+        <div class="sub">一份简洁的产品说明 · 聚焦功能与边界</div>
+    </div>
+
+    <p><strong>ued体育</strong> 面向希望快速了解体育数据与交互体验的用户。以下从功能摘要、核心亮点、使用建议以及访问提醒四个维度展开，帮助你熟悉该产品的基本面貌。</p>
+
+    <h2>功能摘要</h2>
+    <p>平台围绕体育内容聚合与轻度数据响应设计，提供赛事信息浏览、基础统计查询以及自定义关注列表。界面以信息密度适中的列表与卡片为主，不追求过度动效，注重浏览效率。当前版本已覆盖足球、篮球、网球等常见项目，数据源保持每日更新。</p>
+
+    <h2>核心亮点</h2>
+    <div class="highlight-grid">
+        <div class="hl-card">
+            <h3>结构清晰</h3>
+            <p>按联赛、日期、队伍分级展示，减少信息噪音。筛选与排序逻辑直观，适合快速定位。</p>
+        </div>
+        <div class="hl-card">
+            <h3>轻量交互</h3>
+            <p>无需注册即可浏览大部分公开内容。收藏与对比功能为非必须选项，用户可自行决定是否启用。</p>
+        </div>
+        <div class="hl-card">
+            <h3>克制反馈</h3>
+            <p>加载状态、空数据、错误提示均以简洁文本呈现，不干扰主要阅读流程。页面过渡平实。</p>
+        </div>
+    </div>
+
+    <h2>使用建议</h2>
+    <ul style="padding-left: 1.2rem; margin-bottom: 1.2rem; color: #3e352e;">
+        <li>首次使用可先浏览「今日赛程」板块，熟悉数据分类方式。</li>
+        <li>若需关注特定队伍，使用搜索或联赛筛选效率更高。</li>
+        <li>移动端适配良好，横竖屏均可保持基本排版，建议在稳定的网络环境下使用。</li>
+        <li>数据更新存在合理延迟，重要信息请以官方发布渠道为准。</li>
+    </ul>
+
+    <div class="callout">
+        <strong>访问提醒</strong>
+        <p>该平台为公开信息聚合工具，不提供投注、博彩或任何形式的金融建议。所有数据仅供个人参考，请勿用于违反当地法律法规的场景。如遇到内容异常或长时间无法加载，建议检查网络或稍后再试。</p>
+    </div>
+
+    <h2>常见问题摘要</h2>
+    <div class="faq-item">
+        <details>
+            <summary>是否需要注册账号？</summary>
+            <div class="answer">浏览基本内容无需注册。部分个性化功能（如收藏、对比）建议创建账号，但属于非强制选项。</div>
+        </details>
+    </div>
+    <div class="faq-item">
+        <details>
+            <summary>数据来源及更新频率？</summary>
+            <div class="answer">数据通过公开接口与人工校验结合，每日至少更新一次。赛事密集期更新间隔可能缩短，但不保证实时同步。</div>
+        </details>
+    </div>
+    <div class="faq-item">
+        <details>
+            <summary>移动端使用体验如何？</summary>
+            <div class="answer">页面采用响应式布局，手机浏览器可直接使用。未提供独立 App，建议将站点添加至主屏幕以获得类似应用体验。</div>
+        </details>
+    </div>
+
+    <p style="margin-top: 1.8rem;">如果你希望进一步了解细节，可以自行探索 <a href="https://zho-ued.com">ued体育</a> 的各个模块。根据自身需求调整使用方式，会更有效率。</p>
+
+    <div class="footer-note">
+        <p>本页面仅作产品介绍用途，不构成任何形式的承诺或背书。实际界面与功能以网站实时版本为准。请合理规划使用时间，避免过度依赖单一信息源。</p>
+    </div>
+</div>
+</body>
+</html>
