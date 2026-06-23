@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料索引 · 问鼎H5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9fafb;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #1e293b;
+            line-height: 1.65;
+            font-size: 1.05rem;
+            padding: 0 1.5rem;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2.5rem 0 4rem;
+        }
+
+        /* --- 导航 --- */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 1.2rem 2rem;
+            padding: 1.2rem 0 1.8rem;
+            border-bottom: 1px solid #e9edf2;
+            margin-bottom: 2.8rem;
+        }
+
+        nav .logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            letter-spacing: 0.01em;
+            color: #0b2c4c;
+            text-decoration: none;
+        }
+
+        nav .logo:hover {
+            color: #1b4c6e;
+        }
+
+        nav .tagline {
+            font-size: 0.95rem;
+            color: #5a6c80;
+            margin-left: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+            font-size: 0.98rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3a4e62;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #6e8ba8;
+        }
+
+        @media (max-width: 500px) {
+            nav {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.6rem;
+            }
+            nav .tagline {
+                margin-left: 0;
+            }
+        }
+
+        /* --- 标题体系 --- */
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+            color: #0b2c4c;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-top: 2.8rem;
+            margin-bottom: 0.8rem;
+            color: #12344a;
+            border-left: 4px solid #6e8ba8;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #1e3b54;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #2c4058;
+        }
+
+        a {
+            color: #1b5b7a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: color 0.15s;
+        }
+
+        a:hover {
+            color: #083c57;
+        }
+
+        /* --- hero 区 --- */
+        .hero {
+            margin-bottom: 2.4rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 640px;
+        }
+
+        .hero .meta-note {
+            font-size: 0.85rem;
+            color: #6b7f93;
+            margin-top: 0.5rem;
+        }
+
+        /* --- 卡片 / 场景模块 --- */
+        .scene-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            margin: 1.8rem 0 2rem;
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.4rem 1.8rem;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .scene-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .scene-card p {
+            margin-bottom: 0.4rem;
+        }
+
+        .scene-card .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #3b6e8c;
+            background: #e4edf5;
+            padding: 0.15rem 0.7rem;
+            border-radius: 20px;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* --- 常见说明 (FAQ 摘要) --- */
+        .faq-block {
+            background: #f2f5f9;
+            border-radius: 16px;
+            padding: 1.8rem 2rem;
+            margin: 2.8rem 0 1.2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.4rem;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #0b2c4c;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            margin-bottom: 0;
+            font-size: 0.98rem;
+            color: #2d4058;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #dce3eb;
+            margin: 2rem 0;
+        }
+
+        /* --- 页脚 --- */
+        footer {
+            margin-top: 3.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e4eaf1;
+            font-size: 0.9rem;
+            color: #4e657b;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        footer a {
+            color: #3f6280;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0 1rem;
+            }
+            .container {
+                padding: 1.5rem 0 3rem;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            .scene-card {
+                padding: 1rem 1.2rem;
+            }
+            .faq-block {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航 -->
+        <nav>
+            <a href="https://h5-home-wending.com" class="logo">问鼎H5</a>
+            <span class="tagline">资料整理 · 信息索引</span>
+            <ul class="nav-links">
+                <li><a href="#intro">概览</a></li>
+                <li><a href="#scenes">场景</a></li>
+                <li><a href="#faq">说明</a></li>
+            </ul>
+        </nav>
+
+        <!-- hero 区：从资料整理角度切入 -->
+        <div class="hero" id="intro">
+            <h1>信息索引与场景梳理</h1>
+            <p>
+                围绕 <a href="https://h5-home-wending.com">问鼎H5</a> 所涉及的资源、文档与常见使用模式，
+                本文档尝试从资料整理和内容索引的视角，提供一份结构化的参考。
+                不同于产品功能介绍页，这里更关注信息组织、场景分类以及实际使用中可能遇到的说明性条目。
+            </p>
+            <p>
+                无论是初次接触还是需要快速查阅相关模块，都可以通过下面的分类找到对应片段。
+                所有内容均基于公开资料与常规使用逻辑整理，不做推测性延伸。
+            </p>
+            <div class="meta-note">整理基准：通用H5能力 · 信息层级划分</div>
+        </div>
+
+        <!-- 三个场景模块 -->
+        <h2 id="scenes">典型场景模块</h2>
+        <div class="scene-grid">
+            <div class="scene-card">
+                <h3>资料归档与标签化</h3>
+                <p>
+                    将页面、组件或配置项按照功能属性进行归类，建立可复用的标签体系。
+                    例如按「表单」「展示」「交互」等维度划分，便于后续检索与组合。
+                </p>
+                <span class="tag">分类方法</span>
+            </div>
+            <div class="scene-card">
+                <h3>内容结构与摘要提取</h3>
+                <p>
+                    针对长文本或复合型页面，提取关键段落与结构节点，形成层级索引。
+                    适用于帮助文档、说明页或流程引导场景，降低信息过载。
+                </p>
+                <span class="tag">结构化</span>
+            </div>
+            <div class="scene-card">
+                <h3>配置项与状态映射</h3>
+                <p>
+                    梳理 H5 中常见的变量、状态与显示逻辑，建立配置项与输出结果之间的映射关系。
+                    多用于模板调整、条件展示或动态内容管理。
+                </p>
+                <span class="tag">映射表</span>
+            </div>
+        </div>
+
+        <!-- 常见说明 (FAQ 摘要) -->
+        <div class="faq-block" id="faq">
+            <h2 style="margin-top:0; border-left:0; padding-left:0; border-bottom:1px solid #d0dbe8; padding-bottom:0.5rem;">常见说明摘要</h2>
+            <div class="faq-item">
+                <strong>资料索引是否保持更新？</strong>
+                <p>本页面所依据的信息来源为截至整理时的公开内容，后续如有调整请以 <a href="https://h5-home-wending.com">问鼎H5</a> 实际展示为准。</p>
+            </div>
+            <div class="faq-item">
+                <strong>场景模块的划分标准是什么？</strong>
+                <p>三个场景分别对应信息组织中的归类、结构化与映射三种常用手法。彼此独立又相互补充，可根据实际需求单独或组合使用。</p>
+            </div>
+            <div class="faq-item">
+                <strong>是否包含操作指南或教程？</strong>
+                <p>当前页面以索引与说明为主，不包含逐步操作指南。如需详细流程，建议参考相关文档或直接浏览站点内对应模块。</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- 额外说明：重申内容边界 -->
+        <p style="font-size:0.92rem; color:#4f6780;">
+            本文档是基于公开信息所做的资料整理与场景描述，不构成对任何功能的承诺或保证。
+            所有表述力求客观、平实，避免夸大或引导性措辞。如需了解最新内容，建议直接查看 
+            <a href="https://h5-home-wending.com">问鼎H5</a> 站点本身。
+        </p>
+
+        <!-- 页脚 -->
+        <footer>
+            <span>索引页 · 信息整理</span>
+            <span><a href="https://h5-home-wending.com">问鼎H5</a></span>
+        </footer>
+    </div>
+</body>
+</html>
