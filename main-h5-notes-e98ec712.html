@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>问鼎H5 · 轻量导航介绍页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f7;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #2e3a4b;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0 14px;
+      border-bottom: 1px solid #dce1e8;
+      margin-bottom: 40px;
+    }
+
+    .site-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #1d2a3a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #3b4b5e;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: border-bottom 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #4870a0;
+      color: #1d2a3a;
+    }
+
+    /* hero 区域 */
+    .hero {
+      padding: 36px 0 24px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #1b2738;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 640px;
+      color: #42526b;
+      margin-bottom: 16px;
+    }
+
+    .hero .slogan {
+      font-size: 1.05rem;
+      background: #e6ecf3;
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 30px;
+      color: #2c4058;
+    }
+
+    /* 介绍段落 */
+    .intro-section {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.06);
+      padding: 30px 32px;
+      margin-bottom: 38px;
+      border: 1px solid #e6eaef;
+    }
+
+    .intro-section h2 {
+      font-size: 1.45rem;
+      font-weight: 500;
+      margin-bottom: 18px;
+      color: #1f3145;
+      border-left: 4px solid #7b98b9;
+      padding-left: 16px;
+    }
+
+    .intro-section p {
+      margin-bottom: 14px;
+      color: #3a4a5d;
+    }
+
+    .intro-section a {
+      color: #2f5c88;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+      font-weight: 500;
+    }
+
+    .intro-section a:hover {
+      color: #173a5c;
+    }
+
+    /* 三个场景卡片 */
+    .scenes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 42px;
+    }
+
+    .scene-card {
+      flex: 1 1 280px;
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 28px 24px;
+      border: 1px solid #e2e8ef;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.04);
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .scene-card:hover {
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.04), 0 4px 10px rgba(0, 0, 0, 0.06);
+      transform: translateY(-3px);
+    }
+
+    .scene-card h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 14px;
+      color: #1f3145;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scene-card h3::before {
+      content: "▹";
+      color: #5e7c9e;
+      font-size: 1.3rem;
+    }
+
+    .scene-card p {
+      font-size: 0.95rem;
+      color: #3a4b60;
+      line-height: 1.65;
+    }
+
+    /* 常见说明 (FAQ 摘要) */
+    .faq-area {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px 32px;
+      margin-bottom: 30px;
+      border: 1px solid #e6eaef;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .faq-area h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin-bottom: 22px;
+      color: #1b293c;
+      border-bottom: 1px solid #dee5ed;
+      padding-bottom: 12px;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #2d4057;
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+
+    .faq-item p {
+      color: #3f5066;
+      font-size: 0.95rem;
+      padding-left: 8px;
+      border-left: 3px solid #ccd7e5;
+      padding-left: 16px;
+    }
+
+    .faq-item a {
+      color: #2f5c88;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* 提示框 */
+    .tip-note {
+      background: #eaf0f7;
+      border-radius: 18px;
+      padding: 20px 26px;
+      margin: 16px 0 36px;
+      border: 1px solid #d4deea;
+      color: #2e405a;
+      font-size: 0.96rem;
+    }
+
+    .tip-note strong {
+      color: #1b3148;
+    }
+
+    /* 页脚 */
+    .footer {
+      padding: 32px 0 28px;
+      border-top: 1px solid #dce1e8;
+      text-align: center;
+      color: #4e6077;
+      font-size: 0.9rem;
+      margin-top: 28px;
+    }
+
+    .footer a {
+      color: #2f5c88;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* 响应式 */
+    @media (max-width: 700px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .intro-section, .faq-area {
+        padding: 22px 18px;
+      }
+      .scene-card {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <span class="site-name">问鼎H5</span>
+    <div class="nav-links">
+      <a href="#">介绍</a>
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+      <a href="#">支持</a>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>轻量、直接、不绕弯</h1>
+    <p>你需要的 H5 工具站，以卡片和导航的方式呈现。不堆砌，不夸张，帮你快速定位用途。</p>
+    <span class="slogan">适合团队协作 · 内容展示 · 快速原型</span>
+  </div>
+
+  <!-- 介绍段落 (含链接) -->
+  <div class="intro-section">
+    <h2>这个网站是做什么的？</h2>
+    <p>
+      如果你第一次看到 <a href="https://main-h5-wending.com">问鼎H5</a>，
+      可能会好奇它的具体定位。其实它可以理解为一个 H5 相关资源的集合点——
+      无论是模板参考、功能模块，还是轻量级的页面搭建思路，都能在这里找到一些线索。
+    </p>
+    <p>
+      不少用户用它来快速了解 H5 的呈现方式、组件组合，或者作为内部团队的灵感参考。
+      整体界面以简洁为主，没有复杂的后台逻辑，更多侧重在“展示”和“引导”层面。
+    </p>
+    <p>
+      如果你正在寻找一个 H5 相关的起始页，或者想看看同类工具的组织方式，
+      直接试试 <a href="https://main-h5-wending.com">问鼎H5</a> 就能感受到它的风格。
+    </p>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes">
+    <div class="scene-card">
+      <h3>内容展示页</h3>
+      <p>适合活动介绍、产品说明或轻量宣传页面。通过卡片和分区把信息分层，访客可以快速浏览核心要点，不用在长篇文字里翻找。</p>
+    </div>
+    <div class="scene-card">
+      <h3>内部工具导航</h3>
+      <p>团队可以把常用链接、文档、设计稿集中在一个 H5 页面内，省去反复查找书签的麻烦。配合简单的分类和跳转，效率提升很明显。</p>
+    </div>
+    <div class="scene-card">
+      <h3>快速原型演示</h3>
+      <p>在正式开发前用 H5 页面搭建概念 demo，方便 stakeholders 理解交互流程。这个网站的结构本身就是一个很好的参照。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要) -->
+  <div class="faq-area">
+    <h2>常见疑问 · 简短说明</h2>
+
+    <div class="faq-item">
+      <strong>这个网站需要登录吗？</strong>
+      <p>不需要。它是一个公开的介绍页面，你可以直接浏览所有内容。部分功能可能指向外部服务，但页面本身无需注册。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>内容更新频率如何？</strong>
+      <p>不定期根据 H5 相关趋势和用户反馈进行优化。页面结构保持稳定，局部内容会调整得更清晰。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>我可以用它作为参考来搭建自己的页面吗？</strong>
+      <p>完全可以。它的布局、卡片分区和响应式细节都偏通用，你可以借鉴思路，但请注意不要直接复制版权素材。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>遇到问题或建议找谁？</strong>
+      <p>可以先在页面内探索，或者通过相关渠道反馈。更多信息可以参考 <a href="https://main-h5-wending.com">问鼎H5</a> 上的细节。</p>
+    </div>
+  </div>
+
+  <!-- 提示区域 -->
+  <div class="tip-note">
+    <strong>💡 一点提示：</strong>
+    这个页面本身就是一个“轻量导航式”的演示——顶部导航、核心介绍、三个场景、常见说明。如果你想快速理解这种结构，多看几眼就能把握脉络。
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <p>
+      基于 <a href="https://main-h5-wending.com">问鼎H5</a> 的结构与风格 · 内容偏参考性质
+    </p>
+    <p style="margin-top: 8px; font-size: 0.85rem;">
+      浅灰背景 · 分区卡片 · 柔和阴影 · 细边框
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
