@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于 taptap点点 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fafafa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            color: #1e1e1e;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---- Hero ---- */
+        .hero {
+            padding: 72px 0 48px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+            color: #111;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #555;
+            max-width: 520px;
+            margin: 0 auto 28px;
+        }
+
+        .hero .site-badge {
+            display: inline-block;
+            background: #eaeef2;
+            font-size: 0.85rem;
+            padding: 6px 18px;
+            border-radius: 40px;
+            color: #2c3e50;
+            letter-spacing: 0.3px;
+        }
+
+        /* ---- section ---- */
+        .section {
+            padding: 40px 0;
+        }
+
+        .section h2 {
+            font-size: 1.4rem;
+            font-weight: 580;
+            margin-bottom: 18px;
+            color: #1a1a1a;
+            border-left: 3px solid #0077b6;
+            padding-left: 12px;
+        }
+
+        .section p {
+            font-size: 0.98rem;
+            margin-bottom: 16px;
+            color: #333;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ---- 特点卡片 (优势区) ---- */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 24px 0 8px;
+        }
+
+        .feature-item {
+            background: #ffffff;
+            border: 1px solid #e5e9ed;
+            border-radius: 12px;
+            padding: 22px 18px;
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+        }
+
+        .feature-item .emoji {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .feature-item h3 {
+            font-size: 1rem;
+            font-weight: 580;
+            margin-bottom: 6px;
+            color: #1e1e1e;
+        }
+
+        .feature-item p {
+            font-size: 0.88rem;
+            color: #5a5a5a;
+            margin-bottom: 0;
+        }
+
+        /* ---- 说明区 / 提示 ---- */
+        .callout {
+            background: #f2f6f9;
+            border-radius: 14px;
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-left: 4px solid #0077b6;
+        }
+
+        .callout p {
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            color: #1e2a36;
+        }
+
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        .callout strong {
+            color: #005f8c;
+        }
+
+        /* ---- FAQ 摘要 ---- */
+        .faq-mini {
+            margin: 28px 0 10px;
+        }
+
+        .faq-mini details {
+            border-bottom: 1px solid #e0e4e8;
+            padding: 14px 0;
+        }
+
+        .faq-mini details:first-child {
+            border-top: 1px solid #e0e4e8;
+        }
+
+        .faq-mini summary {
+            font-weight: 530;
+            font-size: 0.98rem;
+            cursor: pointer;
+            color: #1e3b4f;
+            padding: 4px 0;
+            outline: none;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            color: #0077b6;
+        }
+
+        .faq-mini details p {
+            margin: 12px 0 4px;
+            font-size: 0.92rem;
+            color: #3d3d3d;
+            padding-left: 4px;
+        }
+
+        /* ---- 底部链接 ---- */
+        .footer-links {
+            padding: 48px 0 56px;
+            border-top: 1px solid #e2e7ed;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .footer-links p {
+            font-size: 0.92rem;
+            color: #5e5e5e;
+            margin-bottom: 18px;
+        }
+
+        .footer-links .inline-link {
+            color: #0077b6;
+            text-decoration: none;
+            font-weight: 480;
+            border-bottom: 1px dotted #b0c4d8;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .footer-links .inline-link:hover {
+            color: #004466;
+            border-bottom-color: #004466;
+        }
+
+        .footer-note {
+            font-size: 0.8rem;
+            color: #8b8b8b;
+            margin-top: 20px;
+        }
+
+        /* ---- 响应式 ---- */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero {
+                padding: 48px 0 32px;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .container {
+                padding: 0 18px;
+            }
+            .callout {
+                padding: 18px 16px;
+            }
+            .section h2 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .hero p {
+                font-size: 0.92rem;
+            }
+            .feature-item {
+                padding: 16px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- hero 区 -->
+    <header class="hero">
+        <span class="site-badge">互联网信息服务 · 内容聚合</span>
+        <h1>taptap点点</h1>
+        <p>一个以记录、整理与分享为出发点的轻量站点，关注信息本身的可读性与可信度。</p>
+    </header>
+
+    <!-- 介绍 / 背景说明 -->
+    <section class="section">
+        <h2>关于这个站点</h2>
+        <p>
+            <strong>taptap点点</strong> 并不是一个大型平台，而是由个人维护的信息整理型站点。站内内容以网络公开资源、常见问题与经验笔记为主，不涉及金融、医疗等专业建议，也不收集或存储用户的隐私数据。
+        </p>
+        <p>
+            站点的命名源自「点滴记录」的意象——许多看似碎片的信息，经过筛选与归类后，往往能呈现出清晰的脉络。也正因如此，<a href="https://root-taptap.com" style="color:#0077b6; text-decoration: none; font-weight: 480; border-bottom: 1px dotted #b0c4d8;">taptap点点</a> 在内容编排上更倾向于克制与准确，而非堆砌关键词。
+        </p>
+        <p>
+            如果你正在寻找一个没有弹窗、没有广告干扰、且内容经过基本核验的参考页面，或许可以在这里获得一些安静且有价值的阅读体验。
+        </p>
+    </section>
+
+    <!-- 优势区 (特点卡片) -->
+    <section class="section">
+        <h2>几个特点</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <span class="emoji">📂</span>
+                <h3>分类清晰</h3>
+                <p>每个板块都有明确的范围标签，减少无关信息干扰，便于快速定位需要的内容。</p>
+            </div>
+            <div class="feature-item">
+                <span class="emoji">🔎</span>
+                <h3>引用可溯</h3>
+                <p>重要数据或引用均会标注出处，方便自行验证，不为结论背书，也不做二次加工。</p>
+            </div>
+            <div class="feature-item">
+                <span class="emoji">🧭</span>
+                <h3>导航简洁</h3>
+                <p>站内结构尽量扁平，避免深层跳转，让浏览更接近翻阅笔记的直觉。</p>
+            </div>
+            <div class="feature-item">
+                <span class="emoji">⚖️</span>
+                <h3>不追踪</h3>
+                <p>站点不部署第三方统计脚本，不设置 Cookie 追踪，仅保留基本的服务器日志。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区 / 可信说明 -->
+    <section class="section">
+        <h2>关于可信度的一点说明</h2>
+        <div class="callout">
+            <p><strong>内容来源</strong> — 站内信息主要来自公开的技术文档、行业白皮书、权威媒体报道以及经过交叉验证的用户反馈。任何带有推测性或时效敏感的内容都会在页面中明确标注。</p>
+            <p><strong>更新频率</strong> — 站点并非实时更新，部分页面可能落后于最新动态。建议对关键信息进行二次确认。若发现内容错误，可通过站点预留的方式提交指正。</p>
+            <p><strong>外部链接</strong> — 部分页面会引用外部资源，跳转后请自行甄别第三方网站的可靠性。taptap点点 不对第三方内容负责。</p>
+        </div>
+        <p style="font-size:0.9rem; color:#5a5a5a;">
+            总的来说，这个站点更适合作为「信息索引」或「背景阅读」，而不是唯一决策依据。
+        </p>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section class="section">
+        <h2>常见疑问 · 摘要</h2>
+        <div class="faq-mini">
+            <details>
+                <summary>这个站点是官方机构吗？</summary>
+                <p>不是。taptap点点 由个人创建与维护，不隶属于任何组织或企业。所有内容仅代表站点编辑视角的整理与归纳。</p>
+            </details>
+            <details>
+                <summary>需要注册或登录才能浏览吗？</summary>
+                <p>不需要。全站内容对访客完全开放，不设会员系统，也不要求提供任何个人信息即可阅读。</p>
+            </details>
+            <details>
+                <summary>为什么有些页面看起来很简单？</summary>
+                <p>站点的设计原则是「够用就好」——不追求复杂排版，重点放在内容逻辑与可读性上。每个页面都会根据需要安排适当的层级结构。</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- 底部链接区域 -->
+    <footer class="footer-links">
+        <p>
+            如果你对站点的内容方向或具体条目有疑问，可以回到首页查看更多板块。主域名始终是
+            <a href="https://root-taptap.com" class="inline-link">taptap点点</a>，所有页面均基于此地址。
+        </p>
+        <p>
+            同时请注意，本站不提供即时通讯或在线客服，但会定期检查站点收录内容的有效性。
+        </p>
+        <div class="footer-note">
+            © 根系信息 · 非商业展示
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
