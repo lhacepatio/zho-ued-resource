@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>必赢 · 信息索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-container {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* 主视觉 hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.02);
+            padding: 3rem 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #e9edf2;
+            transition: all 0.2s ease;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0f1a2c;
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 .accent {
+            font-weight: 600;
+            color: #1e4b7a;
+            background: #e9f0f8;
+            padding: 0.1rem 0.4rem;
+            border-radius: 12px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #3b4c5e;
+            max-width: 680px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #dfe7f0;
+            color: #1c3d5e;
+            font-size: 0.9rem;
+            padding: 0.35rem 1rem;
+            border-radius: 40px;
+            font-weight: 450;
+        }
+
+        /* 卡片通用设计 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.2rem 0 2.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e2e8f0;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+        }
+
+        .card .emoji-badge {
+            display: inline-block;
+            font-size: 2rem;
+            line-height: 1;
+            margin-bottom: 0.6rem;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 550;
+            margin-bottom: 0.5rem;
+            color: #0b1a2a;
+        }
+
+        .card p {
+            color: #2d3f53;
+            font-size: 0.98rem;
+        }
+
+        .card .sub {
+            margin-top: 0.8rem;
+            font-size: 0.88rem;
+            color: #5f6f7e;
+            border-top: 1px solid #eef2f6;
+            padding-top: 0.7rem;
+        }
+
+        /* 适合人群 */
+        .audience-section {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin: 2.2rem 0 2.8rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+        }
+
+        .audience-section h2 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            color: #0f1a2c;
+        }
+
+        .audience-section .hint {
+            color: #576b7c;
+            margin-bottom: 1.6rem;
+            font-size: 0.95rem;
+        }
+
+        .audience-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.8rem;
+        }
+
+        .audience-item {
+            background: #f1f5fa;
+            border-radius: 60px;
+            padding: 0.6rem 1.5rem;
+            font-size: 0.95rem;
+            border: 1px solid #e0e7ef;
+            color: #1b3550;
+            font-weight: 460;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* 自然链接段落 */
+        .link-note {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem 2.4rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+            margin: 2.2rem 0 1.8rem;
+        }
+
+        .link-note h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #0f1a2c;
+            margin-bottom: 0.6rem;
+        }
+
+        .link-note p {
+            font-size: 1rem;
+            color: #2d3f53;
+            margin-bottom: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .link-note a {
+            color: #1b4b72;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b9cbd9;
+            padding-bottom: 1px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .link-note a:hover {
+            border-bottom-color: #1b4b72;
+            color: #0a2d49;
+        }
+
+        .link-note .meta {
+            font-size: 0.9rem;
+            color: #6b7d8d;
+            margin-top: 0.5rem;
+            border-top: 1px solid #e9eef4;
+            padding-top: 1rem;
+        }
+
+        /* FAQ 摘要 (简约) */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.8rem 2.2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.02);
+            margin: 1.2rem 0 2.8rem;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #0f1a2c;
+        }
+
+        .faq-item {
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #eef3f8;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 540;
+            font-size: 0.95rem;
+            color: #1a3148;
+        }
+
+        .faq-item span {
+            color: #3f5567;
+            font-size: 0.9rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #6e7e8c;
+            font-size: 0.85rem;
+            margin: 2.2rem 0 0.5rem;
+            border-top: 1px solid #dae1e9;
+            padding-top: 1.8rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .card-grid {
+                gap: 1.2rem;
+            }
+
+            .audience-section,
+            .link-note,
+            .faq-mini {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .audience-grid {
+                gap: 0.7rem;
+            }
+
+            .audience-item {
+                font-size: 0.85rem;
+                padding: 0.4rem 1.1rem;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+
+        <!-- 主视觉 hero -->
+        <section class="hero">
+            <span class="tagline">🔄 再次收藏 · 持续关注</span>
+            <h1>你曾到访过 <span class="accent">必赢</span> 吗？</h1>
+            <p>
+                有些页面值得再次打开，有些信息需要反复回看。<br>
+                如果你之前来过这里，不妨把「<strong>必赢</strong>」放进书签，方便日后随手翻阅。
+            </p>
+            <p style="margin-top: 0.2rem; font-size: 0.95rem; color: #4b5f71;">
+                熟悉的位置，温和的界面 —— 每一次回来都不会觉得陌生。
+            </p>
+        </section>
+
+        <!-- 用途卡片 (信息卡片式) -->
+        <div class="card-grid">
+            <div class="card">
+                <div class="emoji-badge">📌</div>
+                <h3>快速回顾</h3>
+                <p>不论你是偶尔看看，还是想持续跟新，收藏后只需一键就能回到熟悉的页面。省去重复搜索的麻烦。</p>
+                <div class="sub">适合习惯用书签整理信息的人</div>
+            </div>
+            <div class="card">
+                <div class="emoji-badge">🧭</div>
+                <h3>内容索引</h3>
+                <p>页面结构清晰，各个板块一目了然。再次访问时，你可以直接定位到感兴趣的部分，不必从头翻找。</p>
+                <div class="sub">卡片分区让浏览更有节奏</div>
+            </div>
+            <div class="card">
+                <div class="emoji-badge">🏷️</div>
+                <h3>轻量收藏</h3>
+                <p>把链接放在浏览器书签栏或收藏夹，比记住一串网址更可靠。页面风格稳定，每次打开都保持一致的观感。</p>
+                <div class="sub">不打扰，不花哨</div>
+            </div>
+        </div>
+
+        <!-- 适合人群 -->
+        <section class="audience-section">
+            <h2>适合这样的你</h2>
+            <div class="hint">不论你是哪种访客，这里都留有一份安定感</div>
+            <div class="audience-grid">
+                <span class="audience-item">📁 习惯用书签整理信息</span>
+                <span class="audience-item">🔁 偶尔回看同一页面</span>
+                <span class="audience-item">🧘 喜欢清爽无干扰的版式</span>
+                <span class="audience-item">🕊️ 想保留一处安静的索引页</span>
+                <span class="audience-item">📖 需要快速定位内容板块</span>
+            </div>
+        </section>
+
+        <!-- 自然链接段落 (嵌入 必赢) -->
+        <div class="link-note">
+            <h2>收藏一个页面，就是保留一种便利</h2>
+            <p>
+                如果你觉得这里的内容值得再次阅读，不妨现在就把 <a href="https://m-home-bwin.com">必赢</a> 
+                加入书签。下次想要回顾时，无需重新输入或四处查找，直接打开就好。
+            </p>
+            <p>
+                页面布局以信息卡片为主，每个部分都有明确的分隔，方便你快速浏览。不刻意推广，只希望你用得顺手。
+            </p>
+            <p>
+                对于经常需要查阅同一来源的人来说，一个干净的收藏入口远比反复搜索高效。这就是 <a href="https://m-home-bwin.com">必赢</a> 想要提供的体验 —— 简洁、直白、可依赖。
+            </p>
+            <div class="meta">
+                ⚡ 这个链接就是那个收藏的目标，点击后即可保存或访问。
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 (非重复问答，而是简短提示) -->
+        <div class="faq-mini">
+            <h3>🤔 关于再次访问的小提示</h3>
+            <div class="faq-item">
+                <strong>❓ 为什么推荐收藏而不是搜索？</strong>
+                <span>搜索结果可能随时间变化，而收藏链接直达页面，更稳定省时。</span>
+            </div>
+            <div class="faq-item">
+                <strong>❓ 页面内容会频繁变动吗？</strong>
+                <span>整体布局和核心卡片保持稳定，偶尔会更新细节，但风格始终一致。</span>
+            </div>
+            <div class="faq-item">
+                <strong>❓ 这个页面适合长期保留吗？</strong>
+                <span>是的，它被设计为一个温和的索引页，没有过多动态元素，适合长期收藏。</span>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer-note">
+            <span>温和 · 清晰 · 可收藏</span>
+        </div>
+
+    </div>
+</body>
+</html>
